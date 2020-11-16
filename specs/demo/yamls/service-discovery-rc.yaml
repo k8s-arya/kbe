@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: www-pod
+spec:
+  replicas: 2
+  selector:
+    app: website
+  template:
+    metadata:
+      name: website
+      labels:
+        app: website
+    spec:
+      containers:
+      - name: www-container
+        #-- image: quay.io/k8s-arya/simpleservice:0.5.0
+        image: quay.io/k8s-arya/simple-webapp:v1
+        ports:
+        - containerPort: 8080

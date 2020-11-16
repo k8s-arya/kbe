@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: www-pod
+spec:
+  containers:
+  - name: container-in-www-pod
+    image: quay.io/k8s-arya/simpleservice:0.5.0
+    ports:
+    - containerPort: 9876

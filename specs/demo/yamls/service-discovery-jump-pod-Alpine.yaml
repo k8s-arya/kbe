@@ -1,0 +1,17 @@
+apiVersion:   v1
+kind:         Pod
+metadata:
+  name:       jump-pod
+spec:
+  containers:
+  - name:     jump-pod-container
+    image:    docker.io/alpine
+    command:
+      - "bin/sh"
+      - "-c"
+      - "sleep 10000"
+    lifecycle:
+        postStart:
+          exec:
+            command: ["/bin/sh", "-c", "apk add curl"]
+

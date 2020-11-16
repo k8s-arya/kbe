@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: service-impl-lab
+spec:
+  replicas: 1
+  selector:
+    app: service-impl-lab
+  template:
+    metadata:
+      name: simple-webapp-service-example
+      labels:
+        app: service-impl-lab
+    spec:
+      containers:
+      - name: simple-webapp-service-example
+        image: quay.io/k8s-arya/simple-webapp-service-example:1.0
+        ports:
+        - containerPort: 8080

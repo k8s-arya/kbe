@@ -1,0 +1,17 @@
+apiVersion:   v1
+kind:         Pod
+metadata:
+  name:       jump-pod
+spec:
+  containers:
+  - name:     jump-pod-container
+    image:    centos:7
+    command:
+      - "bin/bash"
+      - "-c"
+      - "sleep 10000"
+    lifecycle:
+        postStart:
+          exec:
+            command: ["/bin/bash", "-c", "yum install -y bind-utils"]
+

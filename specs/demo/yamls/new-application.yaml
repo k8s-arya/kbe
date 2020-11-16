@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-webapp
+spec:
+  replicas: 6
+  selector:
+   matchLabels:
+    app: new-service
+  template:
+    metadata:
+      labels:
+        app: new-service
+    spec:
+      containers:
+      - name: my-new-webapp
+        image: quay.io/k8s-arya/simple-webapp:v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SIMPLE_SERVICE_VERSION
+          value: "1.0"
+        resources:
+           requests:
+              memory: "50Mi"
+              cpu: "50m"
+           limits:
+              memory: "64Mi"
+              cpu: "100m"
+     
+
