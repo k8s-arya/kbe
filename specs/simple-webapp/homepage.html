@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deployment Demonstration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    HTML{height:100%;}
+    BODY{font-family:Helvetica,Arial;display:flex;display:-webkit-flex;align-items:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-webkit-justify-content:center;height:100%;}
+    .box{background:#f93458;color:white;text-align:center;border-radius:10px;display:inline-block;}
+    H1{font-size:10em;line-height:1.5em;margin:0 0.5em;}
+    H2{margin-top:0;}
+  </style>
+</head>
+<body>
+<div class="box"><h1>v2</h1><h2></h2>
+<p>The date today is : <b> {{.Date}} </b> </p>
+<p>And the time is : <b> {{.Time}} </b> </p>
+<p>This is served from POD : <b> {{.PodName}} </b> </p>
+<p>and the POD IP is :<b> {{.PodIP}} </b> </p>
+</div>
+</body>
+</html>
