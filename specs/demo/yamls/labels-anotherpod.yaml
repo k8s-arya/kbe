@@ -8,6 +8,6 @@ metadata:
 spec:
   containers:
   - name: sise
-    image: quay.io/k8s-arya/simpleservice:0.5.0
+    image: quay.io/k8s-arya/simple-echo-server:v1
     ports:
     - containerPort: 9876
