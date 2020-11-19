@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-simple-webapp
-        image: quay.io/k8s-arya/simple-webapp:v1
+        image: quay.io/k8s-arya/simple-webapp:v11
         ports:
         - containerPort: 8080
         env:
