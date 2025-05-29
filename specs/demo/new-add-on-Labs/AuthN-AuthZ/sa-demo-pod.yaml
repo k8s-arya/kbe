@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shopping-api
+spec:
+  containers:
+  - image: docker.io/library/nginx:1.27.5
+    name: shopping-api
+  serviceAccountName: cicd-api-access 

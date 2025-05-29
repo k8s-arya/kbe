@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-demo
+spec:
+  selector:
+    matchLabels:
+      env: all-nodes
+  template:
+    metadata:
+      labels:
+        env: all-nodes
+    spec:
+      containers:
+      - name: daemonset-demo-pod
+        image: docker.io/library/nginx:1.27.5

@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-demo1
+spec:
+  template:
+    metadata:
+      name: job-demo1
+    spec:
+      containers:
+      - name: count-down
+        image: docker.io/library/busybox:1.37.0
+        command:
+        - "/bin/sh"
+        - "-c"
+        - "for i in 9 8 7 6 5 4 3 2 1 0 ; do echo $i ; done"
+      restartPolicy: Never

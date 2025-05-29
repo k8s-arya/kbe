@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemonset-demo
+spec:
+  selector:
+    matchLabels:
+      env: all-nodes
+  template:
+    metadata:
+      labels:
+        env: all-nodes
+    spec:
+      tolerations:
+      # these tolerations are to have the daemonset runnable on control plane nodes
+      - key: node-role.kubernetes.io/control-plane
+        operator: Exists
+        effect: NoSchedule
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: daemonset-demo-pod
+        image: docker.io/library/nginx:1.27.5

@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-job-demo
+spec:
+  # run every two minutes...
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    metadata:
+      name: cron-job-demo
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cron-job-test
+            image: docker.io/library/busybox:1.37.0
+            command:
+            - "/bin/sh"
+            - "-c"
+            - "for i in 9 8 7 6 5 4 3 2 1 0 ; do echo $i ; done"
+          restartPolicy: Never
